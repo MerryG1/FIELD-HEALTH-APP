@@ -1,0 +1,12 @@
+.background {
+    background-color: #a0c1a5;
+    background-size: cover;
+    background-position: center;
+}
+
+.p {
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+    color: #6e5454;
+    line-height: 1.5;
+}
