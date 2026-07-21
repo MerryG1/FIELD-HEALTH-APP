@@ -1,0 +1,11 @@
+services:
+  field-health-api:
+    build:
+      context: .
+      dockerfile: docker/app.Dockerfile
+    container_name: field-health-container
+    image: field-health-image
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./data:/app/data

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Field Health App</title>
+</head>
+<body>
+    <h1>Hello</h1>
+    <h2>Let us check the health profile of your field</h2>
+
+    <p>Upload RGB/NIR raster</p>
+    <input type="file" id="multispectral" accept=".tif,.tiff">
+
+    <hr>
+
+    <p>Option A: Upload existing CHM raster</p>
+    <input type="file" id="chm" accept=".tif,.tiff">
+
+    <p>Option B: Upload DSM and DTM so CHM can be calculated</p>
+    <input type="file" id="dsm" accept=".tif,.tiff">
+    <input type="file" id="dtm" accept=".tif,.tiff">
+
+    <br><br>
+
+    <button onclick="analyzeField()">Analyze Field</button>
+
+    <h3>Result</h3>
+    <pre id="result"></pre>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
