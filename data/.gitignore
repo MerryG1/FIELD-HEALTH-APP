@@ -1,0 +1,7 @@
+# Ignore all uploaded and generated raster files
+**/*.tif
+**/*.tiff
+**/*.py
+
+# But keep directory structure placeholders
+!**/.gitkeep
