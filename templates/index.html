@@ -17,12 +17,20 @@
     <input type="file" id="chm" accept=".tif,.tiff">
 
     <p>Option B: Upload DSM and DTM so CHM can be calculated</p>
+    <label for="dsm">DSM (Digital Surface Model — includes vegetation &amp; buildings):</label><br>
     <input type="file" id="dsm" accept=".tif,.tiff">
+    <br><br>
+    <label for="dtm">DTM (Digital Terrain Model — bare ground only):</label><br>
     <input type="file" id="dtm" accept=".tif,.tiff">
 
     <br><br>
 
-    <button onclick="analyzeField()">Analyze Field</button>
+    <button id="analyze-btn" onclick="analyzeField()">Analyze Field</button>
+
+    <div id="progress-container" style="display:none; margin-top:12px;">
+        <div id="progress-label" style="font-size:14px; margin-bottom:4px;">Uploading...</div>
+        <progress id="progress-bar" value="0" max="100" style="width:100%;"></progress>
+    </div>
 
     <h3>Result</h3>
     <pre id="result"></pre>

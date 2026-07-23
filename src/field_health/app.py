@@ -22,6 +22,16 @@ app = Flask(
     static_folder="/app/static"
 )
 
+# Max upload size: 700 MB
+app.config["MAX_CONTENT_LENGTH"] = 700 * 1024 * 1024
+
+
+@app.errorhandler(413)
+def request_too_large(e):
+    return jsonify({
+        "error": "Upload too large. Maximum allowed size is 500 MB per request."
+    }), 413
+
 
 @app.route("/")
 def home():
@@ -40,6 +50,13 @@ def save_uploaded_file(file, folder, job_id, label):
 
 @app.route("/analyze", methods=["POST"])
 def analyze():
+    try:
+        return _run_analyze()
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+
+def _run_analyze():
     job_id = str(uuid.uuid4())
 
     multispectral_file = request.files.get("multispectral")
