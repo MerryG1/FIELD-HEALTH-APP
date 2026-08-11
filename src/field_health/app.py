@@ -80,7 +80,7 @@ def _run_analyze():
 
     ndvi_output = OUTPUT_DIR / f"{job_id}_ndvi.tif"
     final_chm_output = OUTPUT_DIR / f"{job_id}_calculated_chm.tif"
-    problem_zone_output = OUTPUT_DIR / f"{job_id}_low_ndvi_tall_zones.tif"
+    problem_zone_output = OUTPUT_DIR / f"{job_id}_ndvi_health_map.tif"
 
     calculate_ndvi(multispectral_path, ndvi_output)
 
@@ -110,7 +110,7 @@ def _run_analyze():
         "chm_source": chm_source,
         "ndvi_output": str(ndvi_output),
         "chm_used": str(used_chm_path),
-        "problem_zone_output": str(problem_zone_output)
+        "ndvi_health_map": str(problem_zone_output)
     })
 
 
